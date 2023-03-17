@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BacklogicSpringBootClassicApplication {
+public class BackLogicSpringBootClassicApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BacklogicSpringBootClassicApplication.class, args);
+		SpringApplication.run(BackLogicSpringBootClassicApplication.class, args);
 	}
 
 }

@@ -1,20 +1,21 @@
 package net.backlogic.persistence.springboot.classic.repository;
 
-import net.backlogic.persistence.client.annotation.BacklogicCommand;
-import net.backlogic.persistence.client.annotation.Name;
+import net.backlogic.persistence.client.annotation.Command;
+import net.backlogic.persistence.client.annotation.CommandService;
+import net.backlogic.persistence.springboot.classic.model.ProductLine;
 
-@BacklogicCommand("/command")
+@CommandService("/command")
 public interface ClassicCommand {
 	
 	/*
 	 * clone a source product line
 	 */
-	@Name("duplicateProductLine")
-	void duplicateProductLine(String sourceProductLine, String targetProductLine);
+	@Command("duplicateProductLine")
+	ProductLine duplicateProductLine(String sourceProductLine, String targetProductLine);
 	
 	/*
 	 * Remove customer, along with orders and payments
 	 */
-	@Name("removeCustomer")
+	@Command("removeCustomer")
 	void removeCustomer(Integer customerNumber);
 }

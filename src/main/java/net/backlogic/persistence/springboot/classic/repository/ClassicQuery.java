@@ -1,30 +1,40 @@
 package net.backlogic.persistence.springboot.classic.repository;
 
-import java.util.List;
-
-import net.backlogic.persistence.client.annotation.BacklogicQuery;
-import net.backlogic.persistence.client.annotation.Name;
+import net.backlogic.persistence.client.annotation.Query;
+import net.backlogic.persistence.client.annotation.QueryService;
 import net.backlogic.persistence.springboot.classic.model.Customer;
 import net.backlogic.persistence.springboot.classic.model.Employee;
 import net.backlogic.persistence.springboot.classic.model.ProductLine;
 
-@BacklogicQuery("/query")
+import java.util.List;
+
+@QueryService("/query")
 public interface ClassicQuery {
+	/*
+	 * Get customer
+	 */
+	@Query("getCustomerByCustomerNumber")
+	public Customer getCustomer(int customerNumber);
+
+	@Query("getCustomersByCityOrPostalCode")
+	public List<Customer> getCustomersByCity(String city);
+
+	@Query("getCustomersByCityOrPostalCode")
+	public List<Customer> getCustomersByPostalCode(String postalCode);
+
+	@Query("getInventoryForProduct")
+	public Integer getInventoryForProduct(String productCode);
+
 	/*
 	 * Get product lines along with products.
 	 */
-	@Name("getProductLines")
+	@Query("getProductLines")
 	public List<ProductLine> getProductLines();
-	
-	/*
-	 * Get customer along with orders and payments info.
-	 */
-	@Name("getCustomer")
-	public Customer getCustomer(int customerNumber);
-		
+
+
 	/*
 	 * get all employees, along with their office, manager, and customers they are responsible for.
 	 */
-	@Name("getEmployees")
+	@Query("getEmployees")
 	public List<Employee> getEmployees();
 }

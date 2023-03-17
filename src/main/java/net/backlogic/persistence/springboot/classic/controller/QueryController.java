@@ -1,42 +1,56 @@
 package net.backlogic.persistence.springboot.classic.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-
 import net.backlogic.persistence.springboot.classic.model.Customer;
 import net.backlogic.persistence.springboot.classic.model.Employee;
 import net.backlogic.persistence.springboot.classic.model.ProductLine;
 import net.backlogic.persistence.springboot.classic.repository.ClassicQuery;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
+@RequestMapping("query")
 public class QueryController {
 
 	@Autowired
-	ClassicQuery query;
-	
+	private ClassicQuery query;
+
+	@GetMapping("/getCustomer/{customerNumber}")
+	@ResponseBody
+	public Customer getCustomer(@PathVariable int customerNumber) {
+		return query.getCustomer(customerNumber);
+	}
+
+	@GetMapping("/getCustomersByCity/{city}")
+	@ResponseBody
+	public List<Customer> getCustomersByCity(@PathVariable String city) {
+		return query.getCustomersByCity(city);
+	}
+
+	@GetMapping("/getInventoryForProduct/{productCode}")
+	@ResponseBody
+	public Integer getInventoryForProduct(@PathVariable String productCode) {
+		return query.getInventoryForProduct(productCode);
+	};
+
+	@GetMapping("/getCustomersByPostalCode/{postalCode}")
+	@ResponseBody
+	public List<Customer> getCustomersByPostalCode(@PathVariable String postalCode) {
+		return query.getCustomersByPostalCode(postalCode);
+	}
+
 	@RequestMapping("/getProductLines")
 	@ResponseBody
-	List<ProductLine> getProductLines() {
+	public List<ProductLine> getProductLines() {
 		return query.getProductLines();
 	}
 	
 	@RequestMapping("/getEmployees")
 	@ResponseBody
-	List<Employee> getEmployees() {
+	public List<Employee> getEmployees() {
 		return query.getEmployees();
 	}
-	
-	@RequestMapping("/getCustomer")
-	@ResponseBody
-	Customer getEmployees(@RequestParam int customerNumber) {
-		return query.getCustomer(customerNumber);
-	}
-	
+
 }
