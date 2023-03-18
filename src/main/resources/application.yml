@@ -4,3 +4,8 @@ server:
 das:
   baseUrl: https://devtime.tryprod.backlogic.net/service/try4/example/
   basePackage: net.backlogic.persistence.springboot.classic.repository
+
+logging:
+  level:
+    root: INFO
+    

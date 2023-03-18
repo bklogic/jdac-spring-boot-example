@@ -22,9 +22,15 @@ public interface ClassicQuery {
 	@Query("getCustomersByCityOrPostalCode")
 	public List<Customer> getCustomersByPostalCode(String postalCode);
 
+	@Query("getCustomersByCityOrPostalCode")
+	public List<Customer> getAllCustomers();
+
 	@Query("getInventoryForProduct")
 	public Integer getInventoryForProduct(String productCode);
 
+	@Query("getProductCodesForProductLines")
+	public List<String> getProductCodesForProductLines(List<String> productLines);
+	
 	/*
 	 * Get product lines along with products.
 	 */

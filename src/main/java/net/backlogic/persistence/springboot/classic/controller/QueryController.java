@@ -29,17 +29,31 @@ public class QueryController {
 		return query.getCustomersByCity(city);
 	}
 
-	@GetMapping("/getInventoryForProduct/{productCode}")
-	@ResponseBody
-	public Integer getInventoryForProduct(@PathVariable String productCode) {
-		return query.getInventoryForProduct(productCode);
-	};
-
 	@GetMapping("/getCustomersByPostalCode/{postalCode}")
 	@ResponseBody
 	public List<Customer> getCustomersByPostalCode(@PathVariable String postalCode) {
 		return query.getCustomersByPostalCode(postalCode);
 	}
+	
+	@GetMapping("/getAllCustomers")
+	@ResponseBody
+	public List<Customer> getAllCustomers() {
+		return query.getAllCustomers();
+	}
+	
+	
+	@GetMapping("/getInventoryForProduct/{productCode}")
+	@ResponseBody
+	public Integer getInventoryForProduct(@PathVariable String productCode) {
+		return query.getInventoryForProduct(productCode);
+	}
+
+	
+	@PostMapping("/getProductCodesForProductLines")
+	public List<String> getProductCodesForProductLines(@RequestBody List<String> productLines) {
+		return query.getProductCodesForProductLines(productLines);		
+	}
+	
 
 	@RequestMapping("/getProductLines")
 	@ResponseBody
