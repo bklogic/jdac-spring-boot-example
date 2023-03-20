@@ -11,6 +11,7 @@ public class Employee {
 	String jobTitle;
 	Office office;
 	Employee manager;
+	List<Employee> employees;
 	List<Customer> customers;
 	
 	public List<Customer> getCustomers() {
@@ -66,5 +67,11 @@ public class Employee {
 	}
 	public void setManager(Employee manager) {
 		this.manager = manager;
+	}
+	public List<Employee> getEmployees() {
+		return employees;
+	}
+	public void setEmployees(List<Employee> employees) {
+		this.employees = employees;
 	}
 }

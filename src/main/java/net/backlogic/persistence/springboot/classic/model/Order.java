@@ -12,13 +12,13 @@ public class Order {
 	String comments;
 	Integer customerNumber;
 	String customerName;
-	List<OrderDetail> orderDetails;
+	List<OrderDetail> lines;
 	
-	public List<OrderDetail> getOrderDetails() {
-		return orderDetails;
+	public List<OrderDetail> getLines() {
+		return lines;
 	}
-	public void setOrderDetails(List<OrderDetail> orderDetails) {
-		this.orderDetails = orderDetails;
+	public void setLines(List<OrderDetail> lines) {
+		this.lines = lines;
 	}
 	public Long getOrderNumber() {
 		return orderNumber;

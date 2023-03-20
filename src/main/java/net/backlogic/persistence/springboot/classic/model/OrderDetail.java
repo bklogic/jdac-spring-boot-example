@@ -1,19 +1,12 @@
 package net.backlogic.persistence.springboot.classic.model;
 
 public class OrderDetail {
-	Long orderNumber;
 	String productCode;
 	String productName;
-	Integer quantityOrdered;
-	Float priceEach;
+	Integer qty;
+	Float price;
 	Integer orderLineNumber;
-	
-	public Long getOrderNumber() {
-		return orderNumber;
-	}
-	public void setOrderNumber(Long orderNumber) {
-		this.orderNumber = orderNumber;
-	}
+	Float subtotal;
 	public String getProductCode() {
 		return productCode;
 	}
@@ -26,22 +19,29 @@ public class OrderDetail {
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-	public Integer getQuantityOrdered() {
-		return quantityOrdered;
+	public Integer getQty() {
+		return qty;
 	}
-	public void setQuantityOrdered(Integer quantityOrdered) {
-		this.quantityOrdered = quantityOrdered;
+	public void setQty(Integer qty) {
+		this.qty = qty;
 	}
-	public Float getPriceEach() {
-		return priceEach;
+	public Float getPrice() {
+		return price;
 	}
-	public void setPriceEach(Float priceEach) {
-		this.priceEach = priceEach;
+	public void setPrice(Float price) {
+		this.price = price;
 	}
 	public Integer getOrderLineNumber() {
 		return orderLineNumber;
 	}
 	public void setOrderLineNumber(Integer orderLineNumber) {
 		this.orderLineNumber = orderLineNumber;
-	}	
+	}
+	public Float getSubtotal() {
+		return subtotal;
+	}
+	public void setSubtotal(Float subtotal) {
+		this.subtotal = subtotal;
+	}
+
 }

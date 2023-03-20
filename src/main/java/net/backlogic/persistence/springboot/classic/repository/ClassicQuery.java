@@ -30,17 +30,14 @@ public interface ClassicQuery {
 
 	@Query("getProductCodesForProductLines")
 	public List<String> getProductCodesForProductLines(List<String> productLines);
-	
-	/*
-	 * Get product lines along with products.
-	 */
-	@Query("getProductLines")
-	public List<ProductLine> getProductLines();
-
 
 	/*
 	 * get all employees, along with their office, manager, and customers they are responsible for.
 	 */
-	@Query("getEmployees")
+	@Query("listEmployees")
 	public List<Employee> getEmployees();
+
+	@Query("getEmployeeHierarchy")
+	public List<Employee> getEmployeeHierarchy();
+	
 }

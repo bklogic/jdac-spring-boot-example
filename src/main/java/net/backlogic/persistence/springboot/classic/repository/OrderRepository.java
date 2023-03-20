@@ -5,7 +5,7 @@ import net.backlogic.persistence.springboot.classic.model.Order;
 
 import java.util.List;
 
-@RepositoryService("/repositories/order")
+@RepositoryService("/repository/Order")
 public interface OrderRepository {
 	
 	@Create
@@ -17,11 +17,14 @@ public interface OrderRepository {
 	@Delete
 	void delete(Order order);
 	
+	@Delete
+	void delete(Integer orderNumber);
+	
 	@Save
 	List<Order> save(List<Order> orders);
 	
 	@Read
-	public Order getOrderById(Integer orderNumber);
+	public List<Order> getOrderById(Integer orderNumber);
 	
 	@Read
 	public List<Order> getOrdersByCustomer(Integer customerNumber);

@@ -53,18 +53,17 @@ public class QueryController {
 	public List<String> getProductCodesForProductLines(@RequestBody List<String> productLines) {
 		return query.getProductCodesForProductLines(productLines);		
 	}
-	
 
-	@RequestMapping("/getProductLines")
-	@ResponseBody
-	public List<ProductLine> getProductLines() {
-		return query.getProductLines();
-	}
-	
 	@RequestMapping("/getEmployees")
 	@ResponseBody
 	public List<Employee> getEmployees() {
 		return query.getEmployees();
+	}
+	
+	@RequestMapping("/getEmployeeHierarchy")
+	@ResponseBody
+	public List<Employee> getEmployeeHierarchy() {
+		return query.getEmployeeHierarchy();
 	}
 
 }
