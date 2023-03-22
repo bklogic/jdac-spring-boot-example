@@ -24,7 +24,7 @@ public interface OrderRepository {
 	List<Order> save(List<Order> orders);
 	
 	@Read
-	public List<Order> getOrderById(Integer orderNumber);
+	public Order getOrderById(Integer orderNumber);
 	
 	@Read
 	public List<Order> getOrdersByCustomer(Integer customerNumber);

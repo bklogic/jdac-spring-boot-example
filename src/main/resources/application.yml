@@ -2,7 +2,7 @@ server:
   port: 8080
 
 das:
-  baseUrl: https://devtime.tryprod.backlogic.net/service/try4/example
+  baseUrl: https://try4.devtime.tryprod.backlogic.net/service/try4/example
   basePackage: net.backlogic.persistence.springboot.classic.repository
 
 logging:

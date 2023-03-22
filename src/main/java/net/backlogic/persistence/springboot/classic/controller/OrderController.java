@@ -38,12 +38,7 @@ public class OrderController {
 	
 	@PostMapping("getOrderById/{orderNumber}")
 	public Order getOrderById(@PathVariable Integer orderNumber) {
-		List<Order> orders = repository.getOrderById(orderNumber);
-		if (orders.size() > 0) {
-			return orders.get(0);
-		} else {
-			return null;
-		}
+		return repository.getOrderById(orderNumber);
 	}	
 	
 	@PostMapping("getOrderById2/{orderNumber}")
@@ -58,12 +53,20 @@ public class OrderController {
 		repository2.delete(order);
 	}	
 	
+	
+	@PostMapping("saveOrders")
+	public List<Order> saveOrders(@RequestBody List<Order> orders) {
+		return repository.save(orders);
+	}
+	
+	
+	
 	@PostMapping("batch")
 	public Map<String, Object> batch(@RequestBody Order order) {
 		// run batch
 		List<Order> orders = new ArrayList<>();
-		BatchRepository batchRepository = (BatchRepository) this.client.getBatch(BatchRepository.class);
-		batchRepository.saveOrder(order);
+		BatchRepository batchRepository = this.client.getBatch(BatchRepository.class);
+		batchRepository.saveOrders(orders);
 		batchRepository.getOrdersByCustomer(order.getCustomerNumber());
 		Object[] output = batchRepository.run();
 		
