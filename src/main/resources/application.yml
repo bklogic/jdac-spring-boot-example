@@ -4,7 +4,14 @@ server:
 das:
   baseUrl: https://try4.devtime.tryprod.backlogic.net/service/try4/example
   basePackage: net.backlogic.persistence.springboot.classic.repository
-
+  logRequest: true
+  devtime:
+    enabled: true
+    jwt: ""
+    authEndpoint: https://try4.devtime.tryprod.backlogic.net/service/try4/auth
+    serviceKey: ""
+    serviceSecret: ""
+    
 logging:
   level:
     root: INFO
