@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>net.backlogic.persistence</groupId>
 	<artifactId>backlogic-spring-boot-example</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>backlogic-spring-boot-example</name>
 	<description>Example BackLogic Spring Boot starter application</description>
 
@@ -28,7 +28,7 @@
 		<dependency>
 			<groupId>net.backlogic.persistence</groupId>
 			<artifactId>das-spring-boot-starter</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.2</version>
 		</dependency>
 
 		<dependency>

@@ -65,6 +65,7 @@ public class OrderController {
 	public Map<String, Object> batch(@RequestBody Order order) {
 		// run batch
 		List<Order> orders = new ArrayList<>();
+		orders.add(order);
 		BatchRepository batchRepository = this.client.getBatch(BatchRepository.class);
 		batchRepository.saveOrders(orders);
 		batchRepository.getOrdersByCustomer(order.getCustomerNumber());
