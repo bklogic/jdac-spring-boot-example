@@ -1,12 +1,11 @@
 package net.backlogic.persistence.springboot.classic.repository;
 
+import java.util.List;
+
 import net.backlogic.persistence.client.annotation.Query;
 import net.backlogic.persistence.client.annotation.QueryService;
 import net.backlogic.persistence.springboot.classic.model.Customer;
 import net.backlogic.persistence.springboot.classic.model.Employee;
-import net.backlogic.persistence.springboot.classic.model.ProductLine;
-
-import java.util.List;
 
 @QueryService("/query")
 public interface ClassicQuery {
