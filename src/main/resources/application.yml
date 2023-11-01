@@ -1,18 +1,14 @@
 server:
-  port: 8080
+  port: 8090
 
-das:
-  baseUrl: https://try4.devtime.tryprod.backlogic.net/service/try4/example
+rdas:
+  baseUrl: http://localhost:8080/service/backlogic/example
   basePackage: net.backlogic.persistence.springboot.classic.repository
   logRequest: true
-  devtime:
-    enabled: true
-    jwt: ""
-    authEndpoint: https://try4.devtime.tryprod.backlogic.net/service/try4/auth
-    serviceKey: ""
-    serviceSecret: ""
-    
+  jwtProvider:
+    class: net.backlogic.persistence.client.auth.SimpleJwtProvider
+    jwt: " "
+
 logging:
   level:
     root: INFO
-    

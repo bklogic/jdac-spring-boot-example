@@ -1,21 +1,14 @@
 package net.backlogic.persistence.springboot.classic.controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-
 import net.backlogic.persistence.client.DataAccessClient;
 import net.backlogic.persistence.springboot.classic.model.Customer;
 import net.backlogic.persistence.springboot.classic.model.Employee;
 import net.backlogic.persistence.springboot.classic.repository.BatchQuery;
 import net.backlogic.persistence.springboot.classic.repository.ClassicQuery;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController

@@ -5,18 +5,18 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.9</version>
+		<version>3.1.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>net.backlogic.persistence</groupId>
-	<artifactId>backlogic-spring-boot-example</artifactId>
-	<version>0.0.1</version>
-	<name>backlogic-spring-boot-example</name>
-	<description>Example BackLogic Spring Boot starter application</description>
+	<artifactId>rdas-spring-boot-example</artifactId>
+	<version>0.0.2</version>
+	<name>rdas-spring-boot-example</name>
+	<description>Example RDAS Spring Boot starter application</description>
 
 	<properties>
-		<maven.compiler.source>11</maven.compiler.source>
-		<maven.compiler.target>11</maven.compiler.target>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
 	</properties>
 
 	<dependencies>
@@ -27,8 +27,8 @@
 
 		<dependency>
 			<groupId>net.backlogic.persistence</groupId>
-			<artifactId>das-spring-boot-starter</artifactId>
-			<version>0.0.2</version>
+			<artifactId>rdas-spring-boot-starter</artifactId>
+			<version>0.0.5</version>
 		</dependency>
 
 		<dependency>
