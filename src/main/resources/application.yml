@@ -1,7 +1,7 @@
 server:
   port: 8090
 
-rdas:
+jdac:
   baseUrl: http://localhost:8080/service/backlogic/example
   basePackage: net.backlogic.persistence.springboot.classic.repository
   logRequest: true

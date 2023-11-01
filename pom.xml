@@ -9,14 +9,16 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>net.backlogic.persistence</groupId>
-	<artifactId>rdas-spring-boot-example</artifactId>
-	<version>0.0.2</version>
-	<name>rdas-spring-boot-example</name>
-	<description>Example RDAS Spring Boot starter application</description>
+	<artifactId>jdac-spring-boot-example</artifactId>
+	<version>0.0.3-SNAPSHOT</version>
+	<name>jdac-spring-boot-example</name>
+	<description>Example JDAC Spring Boot starter application</description>
 
 	<properties>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
 	<dependencies>
@@ -27,8 +29,8 @@
 
 		<dependency>
 			<groupId>net.backlogic.persistence</groupId>
-			<artifactId>rdas-spring-boot-starter</artifactId>
-			<version>0.0.5</version>
+			<artifactId>jdac-spring-boot-starter</artifactId>
+			<version>0.0.6-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
