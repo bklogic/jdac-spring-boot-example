@@ -12,3 +12,5 @@ jdac:
 logging:
   level:
     root: INFO
+
+debug: true
