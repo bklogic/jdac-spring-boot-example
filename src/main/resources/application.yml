@@ -9,6 +9,7 @@ jdac:
     class: simple
     jwt: ""
 
+
 logging:
   level:
     root: INFO

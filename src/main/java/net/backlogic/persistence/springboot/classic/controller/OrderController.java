@@ -6,11 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import net.backlogic.persistence.client.DataAccessClient;
 import net.backlogic.persistence.springboot.classic.model.Order;
@@ -36,17 +32,17 @@ public class OrderController {
 		return repository2.create(order);
 	}
 	
-	@PostMapping("getOrderById/{orderNumber}")
+	@GetMapping("getOrderById/{orderNumber}")
 	public Order getOrderById(@PathVariable Integer orderNumber) {
 		return repository.getOrderById(orderNumber);
 	}	
 	
-	@PostMapping("getOrderById2/{orderNumber}")
+	@GetMapping("getOrderById2/{orderNumber}")
 	public Order getOrderById2(@PathVariable Integer orderNumber) {
 		return repository2.getOrderById(orderNumber);
 	}	
 	
-	@PostMapping("deleteOrder/{orderNumber}")
+	@DeleteMapping("deleteOrder/{orderNumber}")
 	public void deleteOrder(@PathVariable long orderNumber) {
 		Order order = new Order();
 		order.setOrderNumber(orderNumber);
@@ -54,12 +50,11 @@ public class OrderController {
 	}	
 	
 	
-	@PostMapping("saveOrders")
+	@PutMapping("saveOrders")
 	public List<Order> saveOrders(@RequestBody List<Order> orders) {
 		return repository.save(orders);
 	}
-	
-	
+
 	
 	@PostMapping("batch")
 	public Map<String, Object> batch(@RequestBody Order order) {
@@ -78,5 +73,5 @@ public class OrderController {
 		
 		return result;
 	}
-	
+
 }

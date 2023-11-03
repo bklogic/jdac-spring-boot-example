@@ -14,7 +14,7 @@ public interface BatchQuery extends Batch {
 	@Query("query/getCustomerByCustomerNumber")
 	public Customer getCustomer(int customerNumber);
 
-	@Query("query/listEmployees")
-	public List<Employee> getEmployees();
+//	@Query("query/listEmployees")
+//	public List<Employee> getEmployees();
 	
 }

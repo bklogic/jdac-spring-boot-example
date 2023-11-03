@@ -1,6 +1,7 @@
 package net.backlogic.persistence.springboot.classic.controller;
 
 import net.backlogic.persistence.client.DataAccessClient;
+import net.backlogic.persistence.springboot.classic.model.BatchQueryResult;
 import net.backlogic.persistence.springboot.classic.model.Customer;
 import net.backlogic.persistence.springboot.classic.model.Employee;
 import net.backlogic.persistence.springboot.classic.repository.BatchQuery;
@@ -52,29 +53,30 @@ public class QueryController {
 	}
 
 	
-	@PostMapping("/getProductCodesForProductLines")
+	@GetMapping("/getProductCodesForProductLines")
+	@ResponseBody
 	public List<String> getProductCodesForProductLines(@RequestBody List<String> productLines) {
 		return query.getProductCodesForProductLines(productLines);		
 	}
 
-	@RequestMapping("/getEmployees")
+	@GetMapping("/getEmployees")
 	@ResponseBody
 	public List<Employee> getEmployees() {
 		return query.getEmployees();
 	}
 	
-	@RequestMapping("/getEmployeeHierarchy")
+	@GetMapping("/getEmployeeHierarchy")
 	@ResponseBody
 	public List<Employee> getEmployeeHierarchy() {
 		return query.getEmployeeHierarchy();
 	}
 
-	@RequestMapping("/batchQuery/{customerNumber}")
+	@GetMapping("/batchCustomerAndEmployees/{customerNumber}")
 	@ResponseBody
 	public Object[] batchQuery(@PathVariable int customerNumber) {
 		BatchQuery batch = (BatchQuery) this.client.getBatch(BatchQuery.class);
 		batch.getCustomer(customerNumber);
-		batch.getEmployees();
+//		batch.getEmployees();
 		return batch.get();
 	}
 	
