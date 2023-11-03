@@ -6,11 +6,9 @@ jdac:
   basePackage: net.backlogic.persistence.springboot.classic.repository
   logRequest: true
   jwtProvider:
-    class: net.backlogic.persistence.client.auth.SimpleJwtProvider
-    jwt: " "
+    class: simple
+    jwt: ""
 
 logging:
   level:
     root: INFO
-
-debug: true
