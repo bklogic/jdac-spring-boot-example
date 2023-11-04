@@ -71,13 +71,4 @@ public class QueryController {
 		return query.getEmployeeHierarchy();
 	}
 
-	@GetMapping("/batchCustomerAndEmployees/{customerNumber}")
-	@ResponseBody
-	public Object[] batchQuery(@PathVariable int customerNumber) {
-		BatchQuery batch = (BatchQuery) this.client.getBatch(BatchQuery.class);
-		batch.getCustomer(customerNumber);
-//		batch.getEmployees();
-		return batch.get();
-	}
-	
 }

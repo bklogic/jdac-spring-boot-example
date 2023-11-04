@@ -48,30 +48,10 @@ public class OrderController {
 		order.setOrderNumber(orderNumber);
 		repository2.delete(order);
 	}	
-	
-	
+
 	@PutMapping("saveOrders")
 	public List<Order> saveOrders(@RequestBody List<Order> orders) {
 		return repository.save(orders);
 	}
-
 	
-	@PostMapping("batch")
-	public Map<String, Object> batch(@RequestBody Order order) {
-		// run batch
-		List<Order> orders = new ArrayList<>();
-		orders.add(order);
-		BatchRepository batchRepository = this.client.getBatch(BatchRepository.class);
-		batchRepository.saveOrders(orders);
-		batchRepository.getOrdersByCustomer(order.getCustomerNumber());
-		Object[] output = batchRepository.run();
-		
-		// process result
-		Map<String, Object> result = new HashMap<>();
-		result.put("savedOrders", output[0]);
-		result.put("customerOrders", output[1]);
-		
-		return result;
-	}
-
 }
