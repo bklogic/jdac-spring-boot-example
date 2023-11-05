@@ -7,6 +7,7 @@ import net.backlogic.persistence.springboot.classic.model.Employee;
 import net.backlogic.persistence.springboot.classic.model.Order;
 import net.backlogic.persistence.springboot.classic.repository.BatchQuery;
 import net.backlogic.persistence.springboot.classic.repository.BatchQueryForGenericArray;
+import net.backlogic.persistence.springboot.classic.repository.BatchQueryForNothing;
 import net.backlogic.persistence.springboot.classic.repository.BatchRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -42,10 +43,21 @@ public class BatchController {
         BatchQueryForGenericArray batchQuery = client.getBatch(BatchQueryForGenericArray.class);
         batchQuery.getCustomer(customerNumber);
         batchQuery.getEmployees();
-        Object[] arr = batchQuery.get();
+        Object[] results = batchQuery.get();
         BatchDTO dto = new BatchDTO();
-        dto.setCustomer((Customer) arr[0]);
-        dto.setEmployees((List<Employee>) arr[1]);
+        dto.setCustomer((Customer) results[0]);
+        dto.setEmployees((List<Employee>) results[1]);
+        return dto;
+    }
+
+    @GetMapping("/batchedCustomerAndEmployees3/{customerNumber}")
+    @ResponseBody
+    public BatchDTO batchedCustomerAndEmployees3(@PathVariable int customerNumber) {
+        BatchQueryForNothing batchQuery = client.getBatch(BatchQueryForNothing.class);
+        batchQuery.getCustomer(customerNumber);
+        batchQuery.getEmployees();
+        Object result = batchQuery.get();
+        BatchDTO dto = (BatchDTO) result;
         return dto;
     }
 
