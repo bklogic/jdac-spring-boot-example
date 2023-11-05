@@ -27,6 +27,11 @@ public class BatchController {
     @Autowired
     DataAccessClient client;
 
+    /**
+     * Random batched Queries returning DTO
+     * @param customerNumber
+     * @return
+     */
     @GetMapping("/batchedCustomerAndEmployees/{customerNumber}")
     @ResponseBody
     public BatchDTO batchedCustomerAndEmployees(@PathVariable int customerNumber) {
@@ -37,6 +42,11 @@ public class BatchController {
         return dto;
     }
 
+    /**
+     * Random batched Queries returning generic array
+     * @param customerNumber
+     * @return
+     */
     @GetMapping("/batchedCustomerAndEmployees2/{customerNumber}")
     @ResponseBody
     public BatchDTO batchedCustomerAndEmployees2(@PathVariable int customerNumber) {
@@ -50,6 +60,11 @@ public class BatchController {
         return dto;
     }
 
+    /**
+     * Random batched Queries returning VOID
+     * @param customerNumber
+     * @return
+     */
     @GetMapping("/batchedCustomerAndEmployees3/{customerNumber}")
     @ResponseBody
     public BatchDTO batchedCustomerAndEmployees3(@PathVariable int customerNumber) {

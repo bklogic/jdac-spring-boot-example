@@ -13,11 +13,9 @@ import java.util.List;
 @BatchService("")
 public interface BatchQueryForNothing extends Batch<Void> {
 	@Query("query/getCustomerByCustomerNumber")
-	@ReturnMapping("customer")
 	Customer getCustomer(int customerNumber);
 
 	@Query("query/listEmployees")
-	@ReturnMapping("employees")
 	List<Employee> getEmployees();
 
 }

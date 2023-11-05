@@ -12,11 +12,9 @@ import java.util.List;
 @BatchService("")
 public interface BatchQueryForGenericArray extends Batch<Object[]> {
 	@Query("query/getCustomerByCustomerNumber")
-	@ReturnMapping("customer")
 	Customer getCustomer(int customerNumber);
 
 	@Query("query/listEmployees")
-	@ReturnMapping("employees")
 	List<Employee> getEmployees();
 
 }
