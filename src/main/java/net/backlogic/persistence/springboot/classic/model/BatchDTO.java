@@ -2,7 +2,7 @@ package net.backlogic.persistence.springboot.classic.model;
 
 import java.util.List;
 
-public class BatchQueryResult {
+public class BatchDTO {
     private Customer customer;
     private List<Employee> employees;
 

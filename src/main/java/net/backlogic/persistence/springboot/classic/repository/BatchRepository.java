@@ -9,7 +9,7 @@ import net.backlogic.persistence.client.annotation.Save;
 import net.backlogic.persistence.springboot.classic.model.Order;
 
 @BatchService
-public interface BatchRepository extends Batch {
+public interface BatchRepository extends Batch<Object[]> {
 	
 	@Save("repository/Order")
 	List<Order> saveOrders(List<Order> orders);

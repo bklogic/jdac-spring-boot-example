@@ -1,10 +1,8 @@
 package net.backlogic.persistence.springboot.classic.controller;
 
 import net.backlogic.persistence.client.DataAccessClient;
-import net.backlogic.persistence.springboot.classic.model.BatchQueryResult;
 import net.backlogic.persistence.springboot.classic.model.Customer;
 import net.backlogic.persistence.springboot.classic.model.Employee;
-import net.backlogic.persistence.springboot.classic.repository.BatchQuery;
 import net.backlogic.persistence.springboot.classic.repository.ClassicQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

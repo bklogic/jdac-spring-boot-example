@@ -1,10 +1,12 @@
 package net.backlogic.persistence.springboot.classic.controller;
 
-import net.backlogic.persistence.springboot.classic.model.BatchQueryResult;
+import net.backlogic.persistence.client.DataAccessClient;
+import net.backlogic.persistence.springboot.classic.model.BatchDTO;
 import net.backlogic.persistence.springboot.classic.model.Customer;
 import net.backlogic.persistence.springboot.classic.model.Employee;
 import net.backlogic.persistence.springboot.classic.model.Order;
 import net.backlogic.persistence.springboot.classic.repository.BatchQuery;
+import net.backlogic.persistence.springboot.classic.repository.BatchQueryForGenericArray;
 import net.backlogic.persistence.springboot.classic.repository.BatchRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,26 +23,35 @@ import java.util.Map;
 @RestController
 @RequestMapping("batch")
 public class BatchController {
-
     @Autowired
-    private BatchQuery batchQuery;
-    @Autowired
-    private BatchRepository batchRepository;
+    DataAccessClient client;
 
     @GetMapping("/batchedCustomerAndEmployees/{customerNumber}")
     @ResponseBody
-    public BatchQueryResult batchedCustomerAndEmployees(@PathVariable int customerNumber) {
+    public BatchDTO batchedCustomerAndEmployees(@PathVariable int customerNumber) {
+        BatchQuery batchQuery = client.getBatch(BatchQuery.class);
         batchQuery.getCustomer(customerNumber);
         batchQuery.getEmployees();
-        Object[] results = batchQuery.get();
-        BatchQueryResult queryResult = new BatchQueryResult();
-        queryResult.setCustomer((Customer) results[0]);
-        queryResult.setEmployees((List<Employee>) results[1]);
-        return queryResult;
+        BatchDTO dto = batchQuery.get();
+        return dto;
+    }
+
+    @GetMapping("/batchedCustomerAndEmployees2/{customerNumber}")
+    @ResponseBody
+    public BatchDTO batchedCustomerAndEmployees2(@PathVariable int customerNumber) {
+        BatchQueryForGenericArray batchQuery = client.getBatch(BatchQueryForGenericArray.class);
+        batchQuery.getCustomer(customerNumber);
+        batchQuery.getEmployees();
+        Object[] arr = batchQuery.get();
+        BatchDTO dto = new BatchDTO();
+        dto.setCustomer((Customer) arr[0]);
+        dto.setEmployees((List<Employee>) arr[1]);
+        return dto;
     }
 
     @PostMapping("batchRepository")
     public Map<String, Object> batchRepository(@RequestBody Order order) {
+        BatchRepository batchRepository = client.getBatch(BatchRepository.class);
         // run batch
         List<Order> orders = new ArrayList<>();
         orders.add(order);

@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>net.backlogic.persistence</groupId>
 	<artifactId>jdac-spring-boot-example</artifactId>
-	<version>0.0.6</version>
+	<version>0.0.7-SNAP</version>
 	<name>jdac-spring-boot-example</name>
 	<description>Example JDAC Spring Boot starter application</description>
 
