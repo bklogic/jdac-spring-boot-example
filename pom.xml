@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>net.backlogic.persistence</groupId>
 	<artifactId>jdac-spring-boot-example</artifactId>
-	<version>0.1.1-SNAPSHOT</version>
+	<version>0.1.6-SNAPSHOT</version>
 	<name>jdac-spring-boot-example</name>
 	<description>Example JDAC Spring Boot starter application</description>
 
@@ -30,7 +30,7 @@
 		<dependency>
 			<groupId>net.backlogic.persistence</groupId>
 			<artifactId>jdac-spring-boot-starter</artifactId>
-			<version>0.1.1</version>
+			<version>0.1.6</version>
 		</dependency>
 
 		<dependency>
